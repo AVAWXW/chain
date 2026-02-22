@@ -164,7 +164,7 @@ export async function POST(request: Request) {
         holders: normalizedHolders.filter((h: any) => h.avgEntryPrice > 0),
         currentPrice: price
       })
-    : { profitAddresses: 0, totalAddresses: 0, profitPct: 0, estimated: true, method: "bins" };
+    : { profitAddresses: 0, totalAddresses: 0, profitPct: 0, estimated: true, method: "bins" as const };
 
   if (top100Profit.totalAddresses === 0) {
     notes.push("Top100 profit ratio unavailable from holders; using bin estimate if possible.");
