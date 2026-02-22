@@ -42,7 +42,7 @@ export class AlchemyProvider {
     return json.result as T;
   }
 
-  async getAssetTransfers(params: { contractAddress: string; maxCount?: number }) {
+  async getAssetTransfers(params: { contractAddress: string; maxCount?: number | string }) {
     return this.rpc("alchemy_getAssetTransfers", [
       {
         fromBlock: "0x0",
