@@ -150,7 +150,7 @@ export async function POST(request: Request) {
       timestamp: Number(t?.block_time ?? t?.time ?? t?.timestamp ?? 0),
       signature: String(t?.tx_hash ?? t?.signature ?? t?.txid ?? "")
     }))
-    .filter((t) => t.price > 0 && t.volume > 0);
+    .filter((t: NormalizedTrade) => t.price > 0 && t.volume > 0);
 
   const distribution = normalizedHolders.length
     ? computeChipDistribution(normalizedHolders)
