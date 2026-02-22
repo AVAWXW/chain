@@ -281,7 +281,7 @@ export async function POST(request: Request) {
     const map3d = mapToPct(snap3d);
     const map7d = mapToPct(snap7d);
 
-    topHolders.forEach((h) => {
+    topHolders.forEach((h: any) => {
       if (map3d.size) h.flow3d = Number((h.pct - (map3d.get(h.address) ?? 0)).toFixed(4));
       if (map7d.size) h.flow7d = Number((h.pct - (map7d.get(h.address) ?? 0)).toFixed(4));
       const first = loadFirstSeen(db, { chain, address, holder: h.address });
